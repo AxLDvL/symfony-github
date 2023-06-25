@@ -50,3 +50,6 @@ jobs:
            composer config --no-plugins allow-plugins.phpstan/extension-installer true
            composer require phpstan/phpstan-symfony
            ./vendor/bin/phpstan analyse src --memory-limit 1G
+           
+      - name: Lint YAML files
+        run: ./bin/console lint:yaml config --parse-tags
