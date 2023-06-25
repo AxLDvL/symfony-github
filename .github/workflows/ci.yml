@@ -6,6 +6,7 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    continue-on-error: false
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -53,7 +54,7 @@ jobs:
 
       - name: Lint YAML files
         run: ./bin/console lint:yaml config --parse-tags
-        
+
       - name: Lint Twig templates
         run: ./bin/console lint:twig templates --env=prod
 
